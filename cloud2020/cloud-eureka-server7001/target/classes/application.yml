@@ -1,0 +1,25 @@
+server:
+  port: 7001
+
+eureka:
+  instance:
+    hostname: eureka7001.com
+  client:
+    #falser标水不向注册中心注册自己
+    register-with-eureka: false
+    #falser表示自己端就是注册中心，我的职责就是维护服务实例，并不去检索服务
+    fetch-registry: false
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+#      defaultZone: http://eureka7002.com:7002/eureka/
+#关闭自我保护机制（1/2）
+#  server:
+#   enable-self-preservation: false
+#   eviction-interval-timer-in-ms: 2000
+#
+#spring:
+#  application:
+#    name: cloud-provider-payment
+#  cloud:
+#    zookeeper:
+#     connect-string: linux系统地址
